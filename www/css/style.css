@@ -1,0 +1,189 @@
+.desc{
+	color: #aaa;
+	font-size: 13px;
+	display: inline !important;
+
+}
+
+a.item{
+	padding: 5px !important;
+border-bottom: 1px solid #D3D3D3 !important;
+margin: 0px !important;
+}
+
+a.item:last-child{
+	border: none !important;
+}
+
+.item .badge{
+	top: 26% !important;
+}
+
+/* thread page */
+
+.quotetop{
+	color: #666 !important;
+	padding: 8px 8px 5px 8px;
+	background: #eee;
+}
+
+.quotemain{
+	color: #666 !important;
+	background: #F7F7F7;
+	padding: 4px 8px 8px 8px;
+	margin-bottom: 10px;
+	border: 1px solid #eee;
+	border-top: none;
+}
+
+[align="right"] {
+    display: none;
+}
+
+.card{
+	margin: 5px 0 !important;
+	border-bottom: 1px solid #ddd !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+
+.card:nth-last-child(2){
+	border: none !important;
+}
+
+.item-body{
+	padding-top: 0px!important
+}
+
+.content{
+	margin-top: 0 !important;
+}
+
+.contentDate{
+	font-size: 12px !important;
+	color: #666 !important;
+}
+
+.avatar{
+	width: 50px!important;
+	height: 50px!important;
+	float: left!important;
+	margin: 0 10px 0 0!important;
+	border-radius: 50%!important;
+	background-size: contain!important;
+	box-shadow: 0px 0px 0px 1px rgba(221, 221, 221, 1.0);
+}
+
+.item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content{
+	padding-left: 15px !important;
+}
+
+.content img{
+	width: 100%;
+}
+
+img[alt="sad.gif"], img[alt="smile.gif"],img[alt="smile.gif"],
+img[alt="biggrin.gif"],
+img[alt="tongue.gif"],
+img[alt="blush.gif"],
+img[alt="blink.gif"],
+img[alt="mad.gif"],
+img[alt="cool2.gif"],
+img[alt="brows.gif"],
+img[alt="hmm.gif"],
+img[alt="laugh.gif"],
+img[alt="nod.gif"],
+img[alt="yawn.gif"],
+img[alt="ohmy.gif"],
+img[alt="rolleyes.gif"],
+img[alt="shakehead.gif"],
+img[alt="shocking.gif"],
+img[alt="sweat.gif"],
+img[alt="unsure.gif"],
+img[alt="wub.gif"],
+img[alt="doh.gif"],
+img[alt="wink.gif"]{
+		width: 20px;
+		position: relative;
+		top: 4px;
+}
+
+img[alt="rclxms.gif"],
+img[alt="notworthy.gif"],
+img[alt="icon_idea.gif"],
+img[alt="rclxm9.gif"],
+img[alt="icon_rolleyes.gif"],
+img[alt="icon_question.gif"],
+img[alt="cry.gif"],
+img[alt="drool.gif"],
+img[alt="flex.gif"],
+img[alt="vmad.gif"],
+img[alt="rclxub.gif"],
+img[alt="whistling.gif"],
+img[alt="thumbup.gif"],
+img[alt="cool.gif"]{
+		width: 30px;
+		position: relative;
+		top: 4px;
+}
+.item p {
+color: #000 !important;
+}
+
+/* .threadContent:nth-of-type(2){
+	margin-top: 48px !important;
+}
+
+.backBtn{
+padding: 0px 10px 0 8px !important;
+} */
+
+.splash{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 202px;
+   height: 150px;
+   margin-left: -101px; /* Half the height */
+   margin-top: -185px; /* Half the width */
+   z-index: 99999;
+}
+
+.ion-loader{
+	text-align: center !important;
+	font-size: 30px !important;
+	margin-top: 25px !important;
+}
+
+.infinite-loader{
+	text-align: center;
+}
+
+.infinite-loader i{
+	padding: 10px 0 10px 0 !important;
+	font-size: 30px !important;
+}
+
+.youtube{
+	width: 100%;
+	height: 250px;
+}
+
+.spoilermain{
+	color: #666 !important;
+	background: #F7F7F7;
+	padding: 4px 8px 8px 8px;
+	border: 1px solid #eee;
+	border-top: none;
+	margin-top: 0px !important;
+}
+
+.spoilertop{
+	color: #666 !important;
+	padding: 8px 8px 5px 8px;
+	background: #eee;
+}
+
+.spoilertop > u{
+	text-decoration: none;
+}
