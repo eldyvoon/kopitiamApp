@@ -1,4 +1,4 @@
-	var app = angular.module('App',['ionic']);
+	var app = angular.module('App',['ionic', 'panda.controllers', 'panda.services']);
 
 	app.config(function ($httpProvider,$stateProvider, $urlRouterProvider) {
 		$httpProvider.defaults.transformRequest = function(data){
@@ -9,23 +9,28 @@
 
 		}
 
-		$urlRouterProvider.otherwise('home');
+		$urlRouterProvider.otherwise('login');
+		$stateProvider.state('login', {
+		  url: '/login',
+		  templateUrl: 'templates/login.html',
+			controller: 'loginCtrl'
+		})
+
 		$stateProvider.state('home', {
 		  url: '/home',
-		  templateUrl: 'home.html'
+		  templateUrl: 'templates/home.html'
 		})
 
 		$stateProvider.state('tContent', {
 		  url: '/tContent/:topicId',
-		  templateUrl: 'tContent.html',
+		  templateUrl: 'templates/tContent.html',
 		  controller : 'tContentCtrl'
 
 	});
 
 	});
 
-
-	app.controller('AppCtrl', ['$sce','$scope', '$http', 'getTopicContent', function($sce, $scope, $http, getTopicContent){
+	app.controller('AppCtrl', ['$sce','$scope', '$http', 'getTopicContent', '$rootScope', function($sce, $scope, $http, getTopicContent, $rootScope){
 
 /*			function checkConnection() {
 			    var networkState = navigator.connection.type;
@@ -45,7 +50,13 @@
 
 			checkConnection();*/
 
-		  
+			// received username from loginCtrl - panda.controllers
+			$rootScope.$on('username', function(event,data){
+				$rootScope.username = data;
+				console.log(data);
+			})
+
+
 		  $scope.splash = true;
 
 		  $scope.trustAsHtml = $sce.trustAsHtml;
@@ -56,7 +67,8 @@
 
 		var getList = function(){
 				$http({
-		        url: "http://daysof.me/lowyat/list.php",
+		        // url: "http://daysof.me/lowyat/list.php",
+		        url: "http://azizi2u.com/lowyat/list.php",
 		        method: "GET"
 		    }).finally(function () {
 		        $scope.$broadcast('scroll.refreshComplete');
@@ -64,7 +76,6 @@
 
 		    }).then(function (response) {
 		        $scope.data = response.data;
-
 		    });
 		}
 
@@ -86,11 +97,12 @@
 
 		 getTopicContent.request($stateParams.topicId).then(function(response){
         	$scope.threadContent = response.data;
+					$scope.topicTitle = response.data[0].title;
 
         	totalPages = response.data[0].totalPages;
-			
+
 			$timeout(function () {
-		          	
+
 				   $('a').click(function () {
 				     var url = $(this).attr('href');
 				     window.open(encodeURI(url), '_system', 'location=yes');
@@ -109,7 +121,7 @@
 
 	    });
 
-		
+
 	    currentPage = 1;
 
 	    Array.prototype.pushArray = function() {
@@ -118,14 +130,15 @@
 
 	    $scope.loadPages = function() {
 
-	    	
+
 
 				if(!$scope.infiniteScoll && currentPage < totalPages){
 
 						$scope.infiniteScoll = true;
 
 			            $http({
-			                url: "http://daysof.me/lowyat/thread.php",
+			                // url: "http://daysof.me/lowyat/thread.php",
+			                url: "http://azizi2u.com/lowyat/thread.php",
 			                method: "GET",
 			                params: {"topicId": $stateParams.topicId, "pageNumber": currentPage}
 			            }).then(function(response){
@@ -136,7 +149,7 @@
 			                    totalPages = parseInt(response.data[0].totalPages) + 1;
 
 			                    		          $timeout(function () {
-		          	
+
 														   $('a').click(function () {
 														     var url = $(this).attr('href');
 														     window.open(encodeURI(url), '_system', 'location=yes');
@@ -165,7 +178,7 @@
 
 	      $scope.reportEvent = function(event)  {
 		    $scope.home();
-		  
+
 		  }
 
 
@@ -175,7 +188,8 @@
 
 		var query = function($topicId) {
 			return $http({
-		        url: "http://daysof.me/lowyat/thread.php",
+		        // url: "http://daysof.me/lowyat/thread.php",
+		        url: "http://azizi2u.com/lowyat/thread.php",
 		        method: "GET",
 		        params: {topicId: $topicId}
 		    })
@@ -218,4 +232,3 @@
 		    }
 		  }
 		})
-

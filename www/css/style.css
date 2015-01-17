@@ -187,3 +187,7 @@ padding: 0px 10px 0 8px !important;
 .spoilertop > u{
 	text-decoration: none;
 }
+.loginImg {
+	display: block;
+	margin: 0 auto;
+}

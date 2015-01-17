@@ -1,0 +1,30 @@
+<ion-view name="home">
+  <ion-header-bar class="bar-assertive">
+    <h1 class="title">Kopitiam</h1>
+    <button ng-cloak class="button button-clear button-light">{{username}}</button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-refresher
+    pulling-text="Pull to refresh..." refreshing-icon="ion-loading-c"
+    on-refresh="doRefresh()">
+  </ion-refresher>
+  <ul class="list">
+    <a ui-sref="tContent({topicId:thread.topicId})" class="item"
+    ng-repeat="thread in data track by $index" >
+    <li class="row">
+      <div class="col col-80">
+        <span class="row responsive-sm item-text-wrap">{{thread.title}}</span>
+        <span class="desc row responsive-sm">{{thread.desc}}</span>
+        <span class="desc row responsive-sm">TS : {{thread.starter}}</span>
+
+      </div>
+
+      <div class="col">
+        <span class="item-note badge badge-positive">{{thread.replies}}</span>
+      </div>
+    </li>
+  </a>
+</ul>
+</ion-content>
+
+</ion-view>

@@ -28,73 +28,21 @@
   </head>
   <body ng-controller="AppCtrl" data-ng-init="init()">
 
-<div ng-show="splash">
+<!-- <div ng-show="splash">
 <img class="splash"  src="img/splash.png">
-</div>
+</div> -->
 
 <ion-nav-view animation="slide-left-right"></ion-nav-view>
 
-
- <script id="home.html" type="text/ng-template">
-<ion-view name="home">
- <ion-content>
- <ion-refresher
-    pulling-text="Pull to refresh..." refreshing-icon="ion-loading-c"
-    on-refresh="doRefresh()">
-  </ion-refresher>
-<ul class="list">
-           <a ui-sref="tContent({topicId:thread.topicId})" class="item" 
-               ng-repeat="thread in data track by $index" >
-               <li class="row">
-                   <div class="col col-80">
-                       <span class="row responsive-sm item-text-wrap">{{thread.title}}</span>
-                       <span class="desc row responsive-sm">{{thread.desc}}</span>
-
-                   </div>
-
-                   <div class="col">
-                       <span class="item-note badge badge-positive">{{thread.replies}}</span>
-                   </div>
-               </li>
-           </a>
-       </ul>
-            </ion-content>
-
-    </ion-view>
+  <script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+  <ion-header-bar>
+  <h1 class="title">My Popover Title</h1>
+  </ion-header-bar>
+  <ion-content>
+  Hello!
+  </ion-content>
+  </ion-popover-view>
   </script>
-
-    <script id="tContent.html" type="text/ng-template">
-    <ion-view name="tContent" when-scrolled="loadPages()">
-
-<div class="ion-loader" ng-show="ionLoader">
-<i class="icon ion-loading-c icon-refreshing"></i>
-</div>
-
-      <div detect-gestures gesture-type="swipeleft" ng-repeat="content in threadContent track by $index" class="list card threadContent">
-
-  <div class="item item-avatar">
-
-    <div class="avatar" ng-style="{'background': 'url({{content.avatar}}) no-repeat center center'}"></div>
-    <h2>{{content.name}}</h2>
-    <p class="contentDate">{{content.date}}</p>
-  </div>
-
-  <div class="item item-body">
-    <p ng-bind-html="trustAsHtml(content.content)" class="content">
-    </p>
-  </div>
-
-</div>
-
-<div class="infinite-loader" ng-show="infiniteScoll">
-<i class="icon ion-loading-c icon-refreshing"></i>
-</div>
-
-    </ion-view>
-    </script> 
-
-
-
   </body>
 </html>
-
