@@ -1,0 +1,31 @@
+<ion-view name="tContent" when-scrolled="loadPages()">
+  <ion-header-bar class="bar-assertive">
+    <button ng-controller="reply" class="button button-stable icon ion-navicon" ng-click="showPopup($event)">Reply</button>
+    <h1 ng-model="topicTitle" ng-bind-html="topicTitle" class="title">{{topicTitle}}</h1>
+    <button ng-cloak class="button button-clear button-light">{{username}}</button>
+  </ion-header-bar><br><br>
+  <div class="ion-loader" ng-show="ionLoader">
+    <i class="icon ion-loading-c icon-refreshing"></i>
+  </div>
+
+  <div detect-gestures gesture-type="swipeleft" ng-repeat="content in threadContent track by $index" class="list card threadContent">
+
+    <div class="item item-avatar">
+
+      <div class="avatar" ng-style="{'background': 'url({{content.avatar}}) no-repeat center center'}"></div>
+      <h2>{{content.name}}</h2>
+      <p class="contentDate">{{content.date}}</p>
+    </div>
+
+    <div class="item item-body">
+      <p ng-bind-html="trustAsHtml(content.content)" class="content">
+      </p>
+    </div>
+
+  </div>
+
+  <div class="infinite-loader" ng-show="infiniteScoll">
+    <i class="icon ion-loading-c icon-refreshing"></i>
+  </div>
+
+</ion-view>
